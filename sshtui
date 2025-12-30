@@ -28,6 +28,6 @@ sshtui() {
   ssh "$HOST"
 }
 
-[[ ! -z "$1" ]] && execute_script "$1"
+[[ "$#" -ne 0 ]] && execute_script "$1"
 
 sshtui
