@@ -1,6 +1,8 @@
 # sshtui
 
-## Installer via `nix flakes`
+## Installation
+
+### flakes + home-manager
 
 Ajouter notre dépôt en inputs:
 ```
@@ -15,4 +17,10 @@ Ensuite dans votre config `home-manager`:
 home.packages = [
   sshtui.packages.x86_64-linux.sshtui
 ];
+```
+
+### nix profiles
+
+```
+nix profile install
 ```
