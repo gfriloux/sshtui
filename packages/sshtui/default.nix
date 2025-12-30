@@ -9,7 +9,7 @@
 
 stdenv.mkDerivation rec {
   name = "sshtui";
-  src = ./sshtui;
+  src = ../../sshtui;
   buildInputs = with pkgs; [ bash fzf rbw bat gawk ];
   nativeBuildInputs = with pkgs; [ makeWrapper ];
 

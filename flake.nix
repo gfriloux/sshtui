@@ -18,5 +18,8 @@
       snowfall = {
         namespace = "sshtui";
       };
+      alias = {
+        packages.default = "sshtui";
+      };
     };
 }
