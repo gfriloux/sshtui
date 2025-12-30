@@ -10,7 +10,7 @@
 stdenv.mkDerivation rec {
   name = "sshtui";
   src = ../../sshtui;
-  buildInputs = with pkgs; [ bash fzf rbw bat gawk ];
+  buildInputs = with pkgs; [ bash television bat gawk ];
   nativeBuildInputs = with pkgs; [ makeWrapper ];
 
   unpackCmd = ''
