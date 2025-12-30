@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+invalid_input() {
+  echo "Input contains invalid chars"
+  exit 1
+}
+
+execute_script() {
+  [[ "${1}" =~ [^a-zA-Z0-9] ]] && invalid_input
+
+  script="$HOME/.config/sshtui/scripts/${1}"
+  [[ -x "${script}" ]] && ${script}
+
+  exit 0
+}
+
 sshtui() {
   [[ -f $(which fzf) ]] || exit 1
   [[ -f $(which bat) ]] || exit 1
@@ -13,5 +27,7 @@ sshtui() {
   echo "SSH session started, connecting to $HOST"
   ssh "$HOST"
 }
+
+[[ ! -z "$1" ]] && execute_script "$1"
 
 sshtui
