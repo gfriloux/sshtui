@@ -48,3 +48,6 @@ find ~/.ssh/config.d/ -maxdepth 1 -mmin +10 -type f -exec rm {} \;
 
 exit 0
 ```
+
+cela vous permettra d'invoquer `sshtui update` afin d'executer
+ce scripts et avoir vos configs à jour.
