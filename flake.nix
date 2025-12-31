@@ -8,18 +8,39 @@
     };
 
     flake-utils.url = "github:numtide/flake-utils";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = inputs:
-    inputs.snowfall-lib.mkFlake {
-      inherit inputs;
-
+  outputs = inputs@{ self, nixpkgs, snowfall-lib, ... }:
+    let
+    flake = snowfall-lib.mkFlake {
+      inherit inputs self;
+      systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       src = ./.;
 
       snowfall = {
+        meta = {
+          name = "sshtui";
+          title = "sshtui";
+        };
+
         namespace = "sshtui";
       };
       alias = {
         packages.default = "sshtui";
+        overlays.default = "sshtui";
       };
+      
+      specialArgs = {
+              inherit inputs self;
+            };
+      
+    };
+    in
+    flake // {
+      overlays = import ./overlays/sshtui;
+      homeModules.sshtui = import ./modules/home/sshtui;
     };
 }
