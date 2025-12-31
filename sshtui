@@ -16,7 +16,7 @@ execute_script() {
 
 sshtui() {
   HOST=$(tv sshtui)
-  [[ -z "${HOST}" ]] || return
+  [[ -z "${HOST}" ]] && return
   ssh "$HOST"
 }
 
