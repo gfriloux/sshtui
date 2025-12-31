@@ -15,16 +15,8 @@ execute_script() {
 }
 
 sshtui() {
-  [[ -f $(which fzf) ]] || exit 1
-  [[ -f $(which bat) ]] || exit 1
-  [[ -f $(which awk) ]] || exit 1
-
   HOST=$(tv sshtui)
-  if [ -z "$HOST" ]; then
-    return
-  fi
-
-  echo "SSH session started, connecting to $HOST"
+  [[ -z "${HOST}" ]] || return
   ssh "$HOST"
 }
 
