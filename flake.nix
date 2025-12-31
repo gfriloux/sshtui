@@ -32,11 +32,6 @@
         packages.default = "sshtui";
         overlays.default = "sshtui";
       };
-      
-      specialArgs = {
-              inherit inputs self;
-            };
-      
     };
     in
     flake // {
