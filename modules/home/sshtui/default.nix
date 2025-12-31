@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.programs.sshtui.sshtui;
+  cfg = config.programs.sshtui;
 in
 {
-  options.programs.sshtui.sshtui = {
+  options.programs.sshtui = {
     enable = lib.mkEnableOption "sshtui";
 
     package = lib.mkOption {
