@@ -14,6 +14,10 @@ sshtui = {
 
 Ensuite dans votre config `home-manager`:
 ```
+modules = [
+  sshtui.homeModules.sshtui
+];
+
 programs.sshtui.enable = true;
 ```
 
