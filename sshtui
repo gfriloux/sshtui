@@ -15,16 +15,8 @@ execute_script() {
 }
 
 sshtui() {
-  [[ -f $(which fzf) ]] || exit 1
-  [[ -f $(which bat) ]] || exit 1
-  [[ -f $(which awk) ]] || exit 1
-
-  HOST=$(grep -R -e "^Host " ~/.ssh/config.d/ | awk '{print $2}' | tv --preview-command "awk '/{}/' RS= ~/.ssh/config.d/* | bat -l ssh_config --color=always --style=grid --line-range :300")
-  if [ -z "$HOST" ]; then
-    return
-  fi
-
-  echo "SSH session started, connecting to $HOST"
+  HOST=$(tv sshtui)
+  [[ -z "${HOST}" ]] || return
   ssh "$HOST"
 }
 

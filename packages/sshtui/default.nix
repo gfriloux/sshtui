@@ -1,4 +1,4 @@
-{ lib, pkgs, writeShellApplication, replaceVars, ... }:
+{ lib, pkgs, writeShellApplication, ... }:
 
 writeShellApplication {
   name = "sshtui";

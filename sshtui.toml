@@ -1,0 +1,10 @@
+[metadata]
+name = "sshtui"
+description = "List and preview SSH Hosts"
+requirements = ["ssh"]
+
+[source]
+command = "grep -Rh -e '^Host ' ~/.ssh/config.d/ | awk '{print $2}'"
+
+[preview]
+command = "awk '/{}/' RS= ~/.ssh/config.d/* | bat -l ssh_config --plain --color=always --style=grid --line-range :300"
