@@ -27,6 +27,19 @@ programs.sshtui.enable = true;
 nix profile install
 ```
 
+### À la main
+
+Installer les dépendances:
+
+- `bash`
+- `television`
+- `bat`
+- `gawk`
+- `findutils`
+
+Copier `sshtui` dans un dossier qui est dans vote `$PATH`.  
+Copier `sshtui.toml` dans `~/.config/television/cable/`.
+
 ## Utilisation
 
 Invoquer `sshtui` va permettre de lister vos configs
