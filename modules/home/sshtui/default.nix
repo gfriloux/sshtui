@@ -1,12 +1,7 @@
-
-{ inputs, config, lib, pkgs, namespace, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.programs.sshtui;
-  # On embarque le fichier fourni par le dépôt ; le chemin est relatif à ce module
   bundledFile = ../../../sshtui.toml;
-  #bundledScript = ../../../sshtui.sh;
-  
-  sshtui = (inputs.self.packages.${pkgs.system}.sshtui or (pkgs.sshtui or null));
 in
 {
   options.programs.sshtui = {
