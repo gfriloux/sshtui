@@ -9,4 +9,11 @@ writeShellApplication {
     bat
     gawk
   ];
+
+  meta  = with lib; {
+    description = "Simple SSH TUI";
+    licence = licences.gpl;
+    platforms = platforms.all;
+    mainProgram = "sshtui";
+  };
 }

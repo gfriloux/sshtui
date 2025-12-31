@@ -13,29 +13,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ self, nixpkgs, snowfall-lib, ... }:
-    let
-    flake = snowfall-lib.mkFlake {
-      inherit inputs self;
+  outputs = inputs:
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       src = ./.;
 
       snowfall = {
-        meta = {
-          name = "sshtui";
-          title = "sshtui";
-        };
+        #meta = {
+        #  name = "sshtui";
+        #  title = "sshtui";
+        #};
 
         namespace = "sshtui";
       };
       alias = {
         packages.default = "sshtui";
-        overlays.default = "sshtui";
       };
     };
-    in
-    flake // {
-      overlays = import ./overlays/sshtui;
-      homeModules.sshtui = import ./modules/home/sshtui;
-    };
+
 }
