@@ -7,7 +7,8 @@ writeShellApplication {
     bash
     television
     bat
-    gawk
+    gawk       # awk
+    findutils  # xargs
   ];
 
   meta  = with lib; {
