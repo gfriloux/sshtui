@@ -14,11 +14,7 @@ sshtui = {
 
 Ensuite dans votre config `home-manager`:
 ```
-home.packages = [
-  sshtui.packages.x86_64-linux.sshtui
-];
-
-programs.sshtui.enable = true;
+programs.sshtui.sshtui.enable = true;
 ```
 
 ### nix profiles
