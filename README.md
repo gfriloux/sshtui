@@ -1,5 +1,7 @@
 # sshtui
 
+![sshtui](sshtui.gif)
+
 ## Installation
 
 ### flakes + home-manager
